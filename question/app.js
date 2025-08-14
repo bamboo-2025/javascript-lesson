@@ -1,3 +1,5 @@
+//基礎編 問題
+
 // Q1 変数
 // 変数 nickname, age に自分の名前と年齢を代入し、文字列連結で以下のようにコンソールに出力してください。
 // 私のニックネームはごっしーです。年齢は28歳です。
@@ -156,3 +158,84 @@ console.log(text);
 // console.log(x);
 
 // JavaScriptでは、関数内で定義した変数はその関数内だけでスコープが有効なので、スコープの有効範囲外にある console.log(x);は、 X = 1 を参照できないから。
+
+
+
+//応用編 問題
+// Q1 標準組み込みオブジェクト
+// 標準組み込みオブジェクト Math を使用し、0 ~ 9 のランダムな整数をコンソールに出力してください。
+
+let random = Math.floor(Math.random() * 10);
+console.log(random);
+
+
+// Q2 - 1 コールバック関数
+// 関数 setTimeout を使用し、3 秒後に以下のようにコンソールに出力してください。
+// Hello World!
+
+setTimeout(function(){console.log("Hello World!")},3000);
+
+// setTimeout … 第一引数に指定した時間が経過した後に実行するプログラムをファンクションの型で持たせ、第２引数につめの引数に設定したプログラムの実行を開始するまでの時間を持たせる。
+// 時間は、ミリ秒の単位で記載します。1秒後に実行したいのであれば、2つめの引数の値は「1000」となります。
+
+
+// Q2 - 2 コールバック関数
+// 下記の関数を使用し、自分の名前を文字列結合を使って以下のように表示してください。
+// 出力結果（例：名前が安藤だった場合）私の名前は安藤です。
+
+function printName(firstName, formatter) {
+  console.log(formatter(firstName));
+}
+
+const addIntro = (name) => '私の名前は' + name + 'です。';
+
+printName("佐竹",addIntro);
+
+
+// Q3 if
+// 変数 num に 任意の数値を代入し、下記条件のもと文字列をコンソールに出し分ける処理を作成してください。
+// 条件
+// num が 0 より大きければnum is greater than 0
+// num が 0 より小さければnum is less than 0
+// num が 0 であればnum is 0
+
+let num = 25;
+
+if (num > 0){
+  console.log("num is greater than 0");
+}else if(num < 0){
+  console.log("num is less than 0");
+}else{
+  console.log("num is 0");
+}
+
+// Q4 for
+// 変数 numbers に空の配列を代入した後、0 ~ 99 までの数字を変数 numbers に全て追加し、値が追加された状態の変数 numbers をコンソールに出力してください
+
+let numbers = [];
+
+for(number = 0; number < 100; number++ ){
+  numbers.push(number);
+}
+
+console.log(numbers);
+
+
+// Q5 for × if
+// 以下の変数 mixed から 要素を一つずつ取り出し、下記条件のもと文字列をコンソールに出し分ける処理を作成してください。
+// 条件
+// Number であり偶数の時は even
+// Number であり奇数の時は odd
+// Number 以外の時は not number
+
+let mixed = [4, '2', 5, '8', '9', 0, 1];
+
+for(let i = 0; i < mixed.length; i++){
+  if(typeof mixed[i] === "number" && mixed[i] % 2 === 0){
+  console.log("even");
+  }else if(typeof mixed[i] === "number" && mixed[i] % 2 === 1){
+  console.log("odd");
+  }else{
+  console.log("not number");
+  }
+}
