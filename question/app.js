@@ -6,9 +6,9 @@
 
 let nickname = "すーちゃん";
 let age = 25;
-let self_introduction = "私のニックネームは" + nickname + "です。年齢は" + age + "歳です。";
-console.log(self_introduction);
-
+// let self_introduction = "私のニックネームは" + nickname + "です。年齢は" + age + "歳です。";
+// console.log(self_introduction);
+console.log("私のニックネームは" + nickname + "です。年齢は" + age + "歳です。");
 
 // Q2 配列
 // 変数 languages に JavaScript, PHP, Ruby, Python, Go の 5 つの値を持つ配列を代入し、その中から JavaScript, Python を取得し、テンプレートリテラルを用いて以下のようにコンソールに出力してください。
@@ -58,7 +58,7 @@ console.log(playerList[1].favorites[1]);
 // Q5 四則演算
 // Q4 で定義した変数 playerList を使用し、John, Bob, Michael の年齢の平均値を計算した結果をコンソールに出力してください。
 let ave = playerList[0].age + playerList[1].age + playerList[2].age;
-console.log(ave / 3);
+console.log(ave / playerList.length);
 
 
 // Q6 関数
@@ -83,10 +83,11 @@ sayWorld();
 // ※ いずれも Q3 で定義した変数 user を直接書き換えないこと
 
 user.birthday = '2000-09-27';
-function sayHello(){
+user.sayHello
+  = function(){
   console.log("Hello!");
 }
-user.greetmethod = sayHello();
+user.sayHello();
 
 
 // Q8 引数
@@ -98,36 +99,32 @@ user.greetmethod = sayHello();
 
 let calc = {};
 
-calc.x = 3;
-calc.y = 4;
-function add(){
-  console.log(calc.x + calc.y)
+calc.add
+  = function (x,y){
+  console.log(x + y);
 }
-add();
+calc.add(3,4);
 
 
-calc.x = 20;
-calc.y = 10;
-function subtract(){
-  console.log(calc.x - calc.y)
+calc.subtract
+  = function (x,y){
+  console.log(x - y);
 }
-subtract();
+calc.subtract(20,10);
 
 
-calc.x = 7;
-calc.y = 7;
-function multiply(){
-  console.log(calc.x * calc.y)
+calc.multiply
+  = function (x,y){
+  console.log(x * y);
 }
-multiply();
+calc.multiply(7,7);
 
 
-calc.x = 10;
-calc.y = 2;
-function divide(){
-  console.log(calc.x / calc.y)
+calc.divide
+  = function (x,y){
+  console.log(x / y);
 }
-divide();
+calc.divide(10,2);
 
 
 // Q9 返り値
@@ -139,10 +136,10 @@ function remainder(x, y) {
   return remainder;
 }
 
-let x = 5;
-let y = 3;
+let num1 = 5;
+let num2 = 3;
 
-let text = `${x} を ${y} で割った余りは ${remainder(5,3)} です。`;
+let text = `${num1} を ${num2} で割った余りは ${remainder(5,3)} です。`;
 console.log(text);
 
 // Q10 スコープ
@@ -183,11 +180,24 @@ setTimeout(function(){console.log("Hello World!")},3000);
 // 下記の関数を使用し、自分の名前を文字列結合を使って以下のように表示してください。
 // 出力結果（例：名前が安藤だった場合）私の名前は安藤です。
 
+// アロー関数
+// function printName(firstName, formatter) {
+//   console.log(formatter(firstName));
+// }
+
+// const addIntro = (name) => '私の名前は' + name + 'です。';
+
+// printName("佐竹",addIntro);
+
+
+// 普通の関数
 function printName(firstName, formatter) {
   console.log(formatter(firstName));
 }
 
-const addIntro = (name) => '私の名前は' + name + 'です。';
+function addIntro(name){
+  return '私の名前は' + name + 'です。';
+};
 
 printName("佐竹",addIntro);
 
